@@ -1,0 +1,70 @@
+﻿<Window x:Class="Yandex.Music.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Yandex.Music"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="57*"></ColumnDefinition>
+            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition Width="57*"></ColumnDefinition>
+            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition Width="59*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="31*"></RowDefinition>
+            <RowDefinition Height="235*"></RowDefinition>
+            <RowDefinition Height="23*"></RowDefinition>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="60*"></RowDefinition>
+            <RowDefinition Height="53*"/>
+        </Grid.RowDefinitions>
+        <MediaElement x:Name="Media" Grid.ColumnSpan="7" Grid.Row="2" LoadedBehavior="Manual" MediaOpened="Media_MediaOpened" Grid.RowSpan="2" MediaEnded="Media_MediaEnded"></MediaElement>
+        <Slider x:Name="audioSlider" Grid.Row="2" Grid.ColumnSpan="7" ValueChanged="audioSlider_ValueChanged"/>
+        <Slider x:Name="soundSlider" Grid.Row="5" Grid.Column="5" Margin="5,5,5,5" Grid.ColumnSpan="2" ValueChanged="soundSlider_ValueChanged" RenderTransformOrigin="0.5,0.5">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+        <Button x:Name="MusicPath" Grid.ColumnSpan="7" Content="Открыть папку с музыкой" Click="MusicPath_Click"/>
+        <Button x:Name="Back1" Grid.Row="4" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" Grid.RowSpan="2" Click="Back1_Click">
+            <Image x:Name="Back" Source="https://www.pngarts.com/files/2/Skip-PNG-Transparent-Image.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Button x:Name="Play1" Grid.Row="4" Foreground="#00000000" Background="#00DDDDDD" BorderBrush="#00707070" OpacityMask="Black" Grid.RowSpan="2" ClickMode="Press" Click="PlayBut_Click" Grid.Column="1">
+            <Image x:Name="Play" Source="https://www.pngall.com/wp-content/uploads/5/Black-Play-Button-PNG-Free-Download.png"/>
+        </Button>
+        <Button x:Name="Skip1" Grid.Row ="4" Grid.Column ="2" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000" Grid.RowSpan="2" Click="Skip1_Click">
+            <Image x:Name="Skip" Source="https://www.pngarts.com/files/2/Skip-PNG-Transparent-Image.png"/>
+        </Button>
+        <Button x:Name="Again1" Grid.Column="3" Grid.Row="4" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" Grid.RowSpan="2" Click="Again1_Click" ClickMode="Press">
+            <Image x:Name="Again" Source="https://www.pngmart.com/files/Again-PNG-Isolated-File.png"/>
+        </Button>
+        <Button x:Name="Randm" Grid.Column="4" Grid.Row="4" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" Grid.RowSpan="2" ClickMode="Press" Click="Randm_Click" Padding="0,0,0,0">
+            <Image x:Name="Rnd" Source="https://static.thenounproject.com/png/1766485-200.png"/>
+        </Button>
+        <TextBlock x:Name="Now" Grid.Row="3" Text="0:0:0"/>
+        <TextBlock x:Name="AllTime" Grid.Row="3" Grid.Column="6" Text="0:0:0" HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="4" Grid.Column="5" Text="Звук:" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ListBox x:Name="ListBox1" Grid.ColumnSpan="7" Grid.Row="1" SelectionChanged="ListBox1_SelectionChanged"/>
+    </Grid>
+
+</Window>
